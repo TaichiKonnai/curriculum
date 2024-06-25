@@ -1,14 +1,16 @@
 //問１ isEven関数
-let numbers = [2, 5, 12, 13, 15, 18, 22];
-function isEven(){
-    for (let i = 0 ; i < numbers.length; i++){
-        if (numbers[i] % 2 === 0){
-            console.log(numbers[i] + 'は偶数です');
+let numbers = [2, 5, 12, 13, 15, 18, 22, 23, 24, 25,100];
+//勝手に文字増やして試してみました。
+function isEven(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 === 0) {
+            console.log(arr[i] + 'は偶数です');
         }
     }
 }
 
-isEven();
+isEven(numbers);
+
 
 //問２　getNumGas関数
 class car {
