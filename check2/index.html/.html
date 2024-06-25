@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        th, td {
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <select id="languageSelect" onchange="changeLang()">
+        <option id="select">選択してください</option>
+        <option id="selected_jpn">日本語</option>
+        <option id="selected_en">English</option>
+        <option id="selected_all">全て表示</option>
+    </select>
+    <table>
+        <tr class="japanese">
+            <th>日本</th>
+            <td>こんにちは</td>
+            <td>ありがとう</td>
+            <td>さようなら</td>
+        </tr>
+        <tr class="english">
+            <th>English</th>
+            <td>Hello</td>
+            <td>Thank you</td>
+            <td>Good Bye</td>
+        </tr>
+    </table>
+
+    <script>
+        function changeLang() {
+            var selectedOption = document.getElementById("languageSelect").value;
+            var japaneseRows = document.querySelectorAll(".japanese");
+            var englishRows = document.querySelectorAll(".english");
+
+            if (selectedOption === "日本語") {
+                japaneseRows.forEach(function(row) {
+                    row.style.display = "table-row";
+                });
+                englishRows.forEach(function(row) {
+                    row.style.display = "none";
+                });
+            } else if (selectedOption === "English") {
+                japaneseRows.forEach(function(row) {
+                    row.style.display = "none";
+                });
+                englishRows.forEach(function(row) {
+                    row.style.display = "table-row";
+                });
+            } else if (selectedOption === "全て表示") {
+                japaneseRows.forEach(function(row) {
+                    row.style.display = "table-row";
+                });
+                englishRows.forEach(function(row) {
+                    row.style.display = "table-row";
+                });
+            } else {
+                japaneseRows.forEach(function(row) {
+                    row.style.display = "none";
+                });
+                englishRows.forEach(function(row) {
+                    row.style.display = "none";
+                });
+            }
+        }
+    </script>
+</body>
+</html>
