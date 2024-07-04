@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ToDoリスト</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // addTodoBtnの要素を取得
+            const addTodoBtn = document.getElementById('addTodoBtn');
+
+            // 追加ボタンが押下されたときのイベントを追加
+            addTodoBtn.addEventListener('click', function() {
+                // inputの要素を取得
+                const todoInput = document.getElementById('todoInput');
+                const todoItem = document.getElementById('todoItem');
+
+                // 処理1、inputが空になっていたら、alert()処理をして処理を終わらせる
+                if (todoInput.value.trim() === '') {
+                    alert('ToDoを入力してください');
+                    return;
+                }
+
+                // 処理2、todoItem内に入力された文字が追加されるようにする
+                const newTodo = document.createElement('li');
+                newTodo.textContent = todoInput.value;
+                todoItem.appendChild(newTodo);
+
+                // inputの値をクリア
+                todoInput.value = '';
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>ToDoリスト</h1>
+    <input type="text" id="todoInput" placeholder="ToDoを入力してください">
+    <button id="addTodoBtn">追加</button>
+    <ul id="todoItem"></ul>
+</body>
+</html>
